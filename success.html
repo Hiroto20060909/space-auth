@@ -31,6 +31,7 @@ body{
 h1{
     font-size:60px;
     color:#00ff88;
+    text-shadow:0 0 20px #00ff88;
 }
 
 p{
@@ -52,7 +53,22 @@ p{
 
 </div>
 
-</div>
+<audio id="successSound" preload="auto">
+    <source src="success.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.addEventListener("load", function(){
+
+    const audio =
+        document.getElementById("successSound");
+
+    audio.play().catch(function(error){
+        console.log("音声の自動再生がブロックされました", error);
+    });
+
+});
+</script>
 
 </body>
 </html>
