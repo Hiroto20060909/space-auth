@@ -57,19 +57,5 @@ p{
     <source src="success.mp3" type="audio/mpeg">
 </audio>    
 
-
-<script>
-window.addEventListener("load", function(){
-
-    const audio =
-        document.getElementById("successSound");
-
-    audio.play().catch(function(error){
-        console.log("音声の自動再生がブロックされました", error);
-    });
-
-});
-</script>
-
 </body>
 </html>
