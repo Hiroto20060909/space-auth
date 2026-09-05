@@ -15,7 +15,7 @@ body{
     justify-content:center;
     align-items:center;
     background:
-    radial-gradient(circle,#003300,#000);
+        radial-gradient(circle,#003300,#000);
     color:white;
     font-family:Arial,sans-serif;
 }
@@ -31,7 +31,9 @@ body{
 h1{
     font-size:60px;
     color:#00ff88;
-    text-shadow:0 0 20px #00ff88;
+    text-shadow:
+        0 0 10px #00ff88,
+        0 0 30px #00ff88;
 }
 
 p{
@@ -45,17 +47,41 @@ p{
 
 <div class="panel">
 
-<h1>AUTHENTICATION SUCCESS</h1>
+    <h1>AUTHENTICATION SUCCESS</h1>
 
-<p>認証成功</p>
+    <p>認証成功</p>
 
-<p>システムロック解除</p>
+    <p>システムロック解除</p>
 
 </div>
 
-<audio autoplay preload="auto">
+
+<!-- 成功時の音声 -->
+<audio id="successSound" preload="auto">
     <source src="success.mp3" type="audio/mpeg">
-</audio>    
+</audio>
+
+
+<script>
+
+window.addEventListener("load", function(){
+
+    const successSound =
+        document.getElementById("successSound");
+
+    successSound.volume = 1;
+
+    successSound.play()
+        .then(function(){
+            console.log("成功音声を再生しました");
+        })
+        .catch(function(error){
+            console.log("自動再生できませんでした:", error);
+        });
+
+});
+
+</script>
 
 </body>
 </html>
